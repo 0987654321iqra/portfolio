@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 864">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="46%" r="75%">
+      <stop offset="0%" stop-color="#141d2c" />
+      <stop offset="55%" stop-color="#0a0f18" />
+      <stop offset="100%" stop-color="#05070c" />
+    </radialGradient>
+    <radialGradient id="fresh" cx="35%" cy="60%" r="45%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="rotten" cx="68%" cy="35%" r="40%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="appleBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c2534" />
+      <stop offset="100%" stop-color="#0d131d" />
+    </linearGradient>
+    <radialGradient id="beam" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" />
+    </filter>
+  </defs>
+
+  <rect width="1152" height="864" fill="url(#bg)" />
+  <rect width="1152" height="864" fill="url(#beam)" />
+
+  <g stroke="#22d3ee" stroke-opacity="0.12" stroke-width="1">
+    <line x1="0" y1="120" x2="1152" y2="120" />
+    <line x1="0" y1="744" x2="1152" y2="744" />
+    <line x1="120" y1="0" x2="120" y2="864" />
+    <line x1="1032" y1="0" x2="1032" y2="864" />
+  </g>
+  <g fill="#22d3ee" fill-opacity="0.35">
+    <circle cx="120" cy="120" r="3" />
+    <circle cx="1032" cy="120" r="3" />
+    <circle cx="120" cy="744" r="3" />
+    <circle cx="1032" cy="744" r="3" />
+  </g>
+
+  <ellipse cx="480" cy="500" rx="230" ry="230" fill="url(#fresh)" filter="url(#soft)" />
+  <ellipse cx="700" cy="330" rx="210" ry="210" fill="url(#rotten)" filter="url(#soft)" />
+
+  <g transform="translate(576,432)">
+    <path
+      d="M -18 -170 C -60 -195 -110 -180 -120 -140 C -220 -175 -300 -90 -300 10
+         C -300 150 -200 260 -60 260 C -20 260 10 240 20 240
+         C 30 240 60 260 100 260 C 240 260 300 150 300 10
+         C 300 -90 220 -175 120 -140 C 108 -182 55 -198 15 -172 Z"
+      fill="url(#appleBody)"
+      stroke="#3a4a5f"
+      stroke-width="2"
+    />
+    <path d="M -10 -170 C -6 -195 8 -215 30 -222" fill="none" stroke="#4b5a6e" stroke-width="8" stroke-linecap="round" />
+    <path d="M 20 -205 C 55 -225 85 -215 95 -190 C 70 -195 45 -190 22 -172 Z" fill="#1f6b3a" fill-opacity="0.7" />
+
+    <g stroke="#67e8f9" stroke-opacity="0.55" stroke-width="1" fill="#a5f3fc">
+      <line x1="-120" y1="-60" x2="-40" y2="-110" />
+      <line x1="-40" y1="-110" x2="60" y2="-120" />
+      <line x1="60" y1="-120" x2="150" y2="-70" />
+      <line x1="-120" y1="-60" x2="-180" y2="30" />
+      <line x1="150" y1="-70" x2="200" y2="40" />
+      <line x1="-180" y1="30" x2="-140" y2="140" />
+      <line x1="200" y1="40" x2="150" y2="150" />
+      <line x1="-140" y1="140" x2="0" y2="190" />
+      <line x1="150" y1="150" x2="0" y2="190" />
+      <line x1="-40" y1="-110" x2="0" y2="0" />
+      <line x1="60" y1="-120" x2="0" y2="0" />
+      <line x1="0" y1="0" x2="0" y2="190" />
+      <line x1="-120" y1="-60" x2="0" y2="0" />
+      <line x1="150" y1="-70" x2="0" y2="0" />
+
+      <circle cx="-120" cy="-60" r="4" />
+      <circle cx="-40" cy="-110" r="4" />
+      <circle cx="60" cy="-120" r="4" />
+      <circle cx="150" cy="-70" r="4" />
+      <circle cx="-180" cy="30" r="4" />
+      <circle cx="200" cy="40" r="4" />
+      <circle cx="-140" cy="140" r="4" />
+      <circle cx="150" cy="150" r="4" />
+      <circle cx="0" cy="190" r="4" />
+      <circle cx="0" cy="0" r="5" fill="#e0f2fe" />
+    </g>
+  </g>
+
+  <g font-family="'Space Grotesk','Segoe UI',sans-serif" fill="#a5f3fc">
+    <g stroke="#22d3ee" stroke-opacity="0.5" stroke-width="1">
+      <line x1="340" y1="330" x2="276" y2="360" />
+      <line x1="340" y1="470" x2="276" y2="470" />
+      <line x1="972" y1="300" x2="866" y2="335" />
+      <line x1="972" y1="560" x2="836" y2="500" />
+      <line x1="576" y1="740" x2="576" y2="692" />
+    </g>
+
+    <text x="336" y="325" text-anchor="end" font-size="19" letter-spacing="1.5" fill="#e2fbff">FRESHNESS SCAN</text>
+    <text x="336" y="465" text-anchor="end" font-size="14" letter-spacing="1.5" fill="#7dd3e8" opacity="0.85">EFFICIENTNET CNN</text>
+
+    <text x="976" y="296" text-anchor="start" font-size="19" letter-spacing="1.5" fill="#ffd9b0">ROTTEN REGION</text>
+    <text x="976" y="565" text-anchor="start" font-size="14" letter-spacing="1.5" fill="#7dd3e8" opacity="0.85">LIVE CAMERA INPUT</text>
+
+    <text x="576" y="765" text-anchor="middle" font-size="18" letter-spacing="2" fill="#e2fbff">FRESH VS ROTTEN CLASSIFICATION</text>
+  </g>
+</svg>

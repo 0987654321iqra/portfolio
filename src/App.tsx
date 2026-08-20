@@ -92,7 +92,7 @@ const projects: Project[] = [
     subtitle: 'AI-Powered Food Classification',
     description:
       'Built a real-time fruit quality detection app using a fine-tuned EfficientNet CNN to classify produce as fresh or rotten from live camera capture or uploaded images, with an interactive training-performance dashboard covering accuracy/loss curves, confusion matrix, and classification report.',
-    image: null,
+    image: '/images/fruit-quality.svg',
     tags: ['EfficientNet', 'TensorFlow/Keras', 'Streamlit', 'Computer Vision'],
     metric: 'Real-Time Detection',
     repo: 'https://github.com/0987654321iqra/ML_PROJECT',
