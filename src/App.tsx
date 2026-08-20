@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
 import {
   Brain,
   Briefcase,
   ChevronDown,
   Code2,
   Database,
+  Download,
   ExternalLink,
   Github,
   GraduationCap,
@@ -24,12 +26,20 @@ import {
 
 const navLinks = [
   { href: '#about', label: 'About' },
+  { href: '#education', label: 'Education' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
   { href: '#certifications', label: 'Certifications' },
   { href: '#contact', label: 'Contact' },
 ]
+
+const education = {
+  school: 'Dawood University of Engineering & Technology',
+  degree: 'Bachelor of Science in Artificial Intelligence',
+  location: 'Karachi, Pakistan',
+  period: 'Oct 2022 – Aug 2026',
+}
 
 const experiences = [
   {
@@ -56,7 +66,17 @@ const experiences = [
   },
 ]
 
-const projects = [
+type Project = {
+  title: string
+  subtitle: string
+  description: string
+  image: string | null
+  tags: string[]
+  metric: string
+  repo?: string
+}
+
+const projects: Project[] = [
   {
     title: 'PulmoOncoSight',
     subtitle: 'AI-Powered Lung Cancer Detection · FYP',
@@ -65,6 +85,17 @@ const projects = [
     image: '/images/lung-cancer.jpg',
     tags: ['Vision Transformer', 'Attention U-Net', 'Full-Stack', 'Medical AI'],
     metric: '94% Accuracy',
+    repo: 'https://github.com/0987654321iqra/pulmo_1',
+  },
+  {
+    title: 'Fruit Quality Classifier',
+    subtitle: 'AI-Powered Food Classification',
+    description:
+      'Built a real-time fruit quality detection app using a fine-tuned EfficientNet CNN to classify produce as fresh or rotten from live camera capture or uploaded images, with an interactive training-performance dashboard covering accuracy/loss curves, confusion matrix, and classification report.',
+    image: null,
+    tags: ['EfficientNet', 'TensorFlow/Keras', 'Streamlit', 'Computer Vision'],
+    metric: 'Real-Time Detection',
+    repo: 'https://github.com/0987654321iqra/ML_PROJECT',
   },
   {
     title: 'Brain Cancer Detector',
@@ -254,7 +285,7 @@ function Hero() {
           <motion.div variants={fadeUp} custom={0} className="mb-5 flex flex-wrap items-center gap-3">
             <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-1.5 text-sm text-violet-200">
               <Sparkles size={16} />
-              AI Undergraduate · ML & Web Developer
+              AI Graduate · ML & Web Developer
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-200">
               <Award size={16} />
@@ -291,6 +322,14 @@ function Hero() {
               className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-300/40 hover:bg-white/10"
             >
               Get In Touch
+            </a>
+            <a
+              href="/Iqra-Ahmed-Resume.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-300/40 hover:bg-white/10"
+            >
+              <Download size={16} />
+              Download Resume
             </a>
           </motion.div>
 
@@ -357,7 +396,8 @@ function About() {
             <motion.p variants={fadeUp} custom={3} className="mt-4 text-base leading-relaxed text-slate-300">
               Whether it’s improving prediction accuracy, deploying AI systems for professional teams,
               or crafting responsive web experiences, I love turning complex problems into clear,
-              usable outcomes.
+              usable outcomes. I'm a Canadian citizen currently based in Pakistan and relocating to
+              Canada.
             </motion.p>
           </div>
 
@@ -376,6 +416,44 @@ function About() {
                 <p className="mt-2 text-lg font-semibold text-white">{item.value}</p>
               </div>
             ))}
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+function Education() {
+  return (
+    <section id="education" className="py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          <motion.p variants={fadeUp} className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+            Education
+          </motion.p>
+          <motion.h2 variants={fadeUp} custom={1} className="section-title text-3xl text-white sm:text-4xl">
+            Academic Background
+          </motion.h2>
+
+          <motion.div
+            variants={fadeUp}
+            custom={2}
+            className="mt-10 flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-6 card-hover sm:flex-row sm:items-start sm:justify-between"
+          >
+            <div className="flex gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-400/15 text-cyan-300">
+                <GraduationCap size={22} />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white">{education.degree}</h3>
+                <p className="mt-1 text-cyan-300">{education.school}</p>
+                <p className="mt-1 text-sm text-slate-400">{education.location}</p>
+              </div>
+            </div>
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-300">
+              <Briefcase size={14} />
+              {education.period}
+            </span>
           </motion.div>
         </motion.div>
       </div>
@@ -468,12 +546,22 @@ function Projects() {
               >
                 <div className={`grid ${i === 0 ? 'md:grid-cols-2' : ''}`}>
                   <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className={`w-full object-cover ${i === 0 ? 'h-64 md:h-full' : 'h-52'}`}
-                      loading="lazy"
-                    />
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className={`w-full object-cover ${i === 0 ? 'h-64 md:h-full' : 'h-52'}`}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        className={`flex w-full items-center justify-center bg-gradient-to-br from-violet-500/20 via-[#0d1424] to-cyan-500/20 ${
+                          i === 0 ? 'h-64 md:h-full' : 'h-52'
+                        }`}
+                      >
+                        <Cpu size={48} className="text-cyan-300/60" />
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424] via-transparent to-transparent" />
                     <span className="absolute bottom-4 left-4 rounded-full bg-cyan-400/90 px-3 py-1 text-xs font-semibold text-slate-950">
                       {project.metric}
@@ -493,6 +581,18 @@ function Projects() {
                         </span>
                       ))}
                     </div>
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
+                      >
+                        <Github size={16} />
+                        View Code
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.article>
@@ -690,7 +790,7 @@ function Footer() {
         <p>© {new Date().getFullYear()} Iqra Ahmed. All rights reserved.</p>
         <div className="flex items-center gap-2 text-slate-500">
           <GraduationCap size={16} />
-          <span>AI Undergraduate Portfolio</span>
+          <span>AI Graduate Portfolio</span>
         </div>
       </div>
     </footer>
@@ -711,12 +811,14 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Education />
         <Experience />
         <Projects />
         <Skills />
         <Certifications />
         <Contact />
       </main>
+      <Analytics />
       <Footer />
     </div>
   )
