@@ -74,6 +74,7 @@ type Project = {
   tags: string[]
   metric: string
   repo?: string
+  demo?: string
 }
 
 const projects: Project[] = [
@@ -96,6 +97,17 @@ const projects: Project[] = [
     tags: ['EfficientNet', 'TensorFlow/Keras', 'Streamlit', 'Computer Vision'],
     metric: 'Real-Time Detection',
     repo: 'https://github.com/0987654321iqra/ML_PROJECT',
+  },
+  {
+    title: 'Canada Wait Times Dashboard',
+    subtitle: 'Healthcare Analytics Dashboard',
+    description:
+      'Interactive Streamlit dashboard modeling how Canadian health authorities track wait-time performance across provinces. Filters a 560-row Pandas dataset by province, procedure, and year, then surfaces live KPIs, a benchmark-compliance trend line, and province/procedure comparison charts built with Plotly.',
+    image: '/images/wait-times-dashboard.svg',
+    tags: ['Python', 'Pandas', 'Plotly', 'Streamlit'],
+    metric: '10 Provinces · 7 Years',
+    repo: 'https://github.com/0987654321iqra/wait-times-dashboard',
+    demo: 'https://wait-times-dashboard-fvhapbfs2d6s2sgudtardh.streamlit.app/',
   },
   {
     title: 'Brain Cancer Detector',
@@ -581,17 +593,33 @@ function Projects() {
                         </span>
                       ))}
                     </div>
-                    {project.repo && (
-                      <a
-                        href={project.repo}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
-                      >
-                        <Github size={16} />
-                        View Code
-                        <ExternalLink size={14} />
-                      </a>
+                    {(project.repo || project.demo) && (
+                      <div className="mt-5 flex flex-wrap gap-5">
+                        {project.repo && (
+                          <a
+                            href={project.repo}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
+                          >
+                            <Github size={16} />
+                            View Code
+                            <ExternalLink size={14} />
+                          </a>
+                        )}
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-300 transition hover:text-violet-200"
+                          >
+                            <Sparkles size={16} />
+                            Live Demo
+                            <ExternalLink size={14} />
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 864">
+  <defs>
+    <radialGradient id="wtBg" cx="50%" cy="46%" r="75%">
+      <stop offset="0%" stop-color="#141d2c" />
+      <stop offset="55%" stop-color="#0a0f18" />
+      <stop offset="100%" stop-color="#05070c" />
+    </radialGradient>
+    <radialGradient id="wtCyan" cx="30%" cy="65%" r="45%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="wtViolet" cx="72%" cy="30%" r="42%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="wtBeam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="wtLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="55%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#67e8f9" />
+    </linearGradient>
+    <linearGradient id="wtArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+    </linearGradient>
+    <filter id="wtSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" />
+    </filter>
+  </defs>
+
+  <rect width="1152" height="864" fill="url(#wtBg)" />
+  <rect width="1152" height="864" fill="url(#wtBeam)" />
+
+  <g stroke="#22d3ee" stroke-opacity="0.12" stroke-width="1">
+    <line x1="0" y1="120" x2="1152" y2="120" />
+    <line x1="0" y1="744" x2="1152" y2="744" />
+    <line x1="120" y1="0" x2="120" y2="864" />
+    <line x1="1032" y1="0" x2="1032" y2="864" />
+  </g>
+  <g fill="#22d3ee" fill-opacity="0.35">
+    <circle cx="120" cy="120" r="3" />
+    <circle cx="1032" cy="120" r="3" />
+    <circle cx="120" cy="744" r="3" />
+    <circle cx="1032" cy="744" r="3" />
+  </g>
+
+  <ellipse cx="360" cy="560" rx="240" ry="220" fill="url(#wtCyan)" filter="url(#wtSoft)" />
+  <ellipse cx="800" cy="300" rx="220" ry="200" fill="url(#wtViolet)" filter="url(#wtSoft)" />
+
+  <g font-family="'Space Grotesk','Segoe UI',sans-serif">
+    <text x="576" y="185" text-anchor="middle" font-size="21" letter-spacing="3" fill="#e2fbff">
+      WAIT-TIME BENCHMARK TRACKING
+    </text>
+    <text x="576" y="212" text-anchor="middle" font-size="13" letter-spacing="2" fill="#7dd3e8" opacity="0.8">
+      CANADA · 10 PROVINCES · 8 PROCEDURES · 2019–2025
+    </text>
+  </g>
+
+  <g transform="translate(196,260)">
+    <rect x="0" y="0" width="760" height="330" rx="18" fill="#0d1424" fill-opacity="0.55" stroke="#233047" stroke-width="1.5" />
+
+    <g stroke="#22d3ee" stroke-opacity="0.1" stroke-width="1">
+      <line x1="40" y1="60" x2="720" y2="60" />
+      <line x1="40" y1="120" x2="720" y2="120" />
+      <line x1="40" y1="180" x2="720" y2="180" />
+      <line x1="40" y1="240" x2="720" y2="240" />
+    </g>
+
+    <line x1="40" y1="95" x2="720" y2="95" stroke="#f97316" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="6 6" />
+    <text x="726" y="99" font-size="12" fill="#fbbf7a" font-family="'Space Grotesk','Segoe UI',sans-serif">90% target</text>
+
+    <path
+      d="M 40 110 L 140 130 L 240 235 L 340 250 L 440 200 L 540 140 L 640 105 L 720 90"
+      fill="none"
+      stroke="url(#wtLine)"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M 40 110 L 140 130 L 240 235 L 340 250 L 440 200 L 540 140 L 640 105 L 720 90 L 720 280 L 40 280 Z"
+      fill="url(#wtArea)"
+    />
+
+    <g fill="#e0f2fe">
+      <circle cx="40" cy="110" r="4" />
+      <circle cx="140" cy="130" r="4" />
+      <circle cx="240" cy="235" r="4.5" fill="#fca97a" />
+      <circle cx="340" cy="250" r="4.5" fill="#fca97a" />
+      <circle cx="440" cy="200" r="4" />
+      <circle cx="540" cy="140" r="4" />
+      <circle cx="640" cy="105" r="4" />
+      <circle cx="720" cy="90" r="4.5" fill="#a5f3fc" />
+    </g>
+
+    <g font-size="11" fill="#7dd3e8" font-family="'Space Grotesk','Segoe UI',sans-serif" text-anchor="middle">
+      <text x="40" y="300">2019</text>
+      <text x="240" y="300" fill="#fca97a">2020</text>
+      <text x="340" y="300" fill="#fca97a">2021</text>
+      <text x="440" y="300">2022</text>
+      <text x="540" y="300">2023</text>
+      <text x="640" y="300">2024</text>
+      <text x="720" y="300">2025</text>
+    </g>
+
+    <text x="20" y="-14" font-size="13" letter-spacing="1.5" fill="#a5f3fc" font-family="'Space Grotesk','Segoe UI',sans-serif">
+      AVG. % MEETING BENCHMARK
+    </text>
+  </g>
+
+  <g transform="translate(196,624)" font-family="'Space Grotesk','Segoe UI',sans-serif">
+    <g>
+      <rect x="0" y="0" width="172" height="86" rx="14" fill="#0d1424" fill-opacity="0.7" stroke="#233047" />
+      <text x="18" y="34" font-size="26" fill="#ffffff" font-weight="600">83%</text>
+      <text x="18" y="58" font-size="11" letter-spacing="1" fill="#7dd3e8">BENCHMARK MET</text>
+    </g>
+    <g transform="translate(196,0)">
+      <rect x="0" y="0" width="172" height="86" rx="14" fill="#0d1424" fill-opacity="0.7" stroke="#233047" />
+      <text x="18" y="34" font-size="26" fill="#ffffff" font-weight="600">61</text>
+      <text x="18" y="58" font-size="11" letter-spacing="1" fill="#7dd3e8">MEDIAN WAIT (DAYS)</text>
+    </g>
+    <g transform="translate(392,0)">
+      <rect x="0" y="0" width="172" height="86" rx="14" fill="#0d1424" fill-opacity="0.7" stroke="#233047" />
+      <text x="18" y="34" font-size="26" fill="#ffffff" font-weight="600">560</text>
+      <text x="18" y="58" font-size="11" letter-spacing="1" fill="#7dd3e8">RECORDS ANALYZED</text>
+    </g>
+    <g transform="translate(588,0)">
+      <rect x="0" y="0" width="172" height="86" rx="14" fill="#0d1424" fill-opacity="0.7" stroke="#233047" />
+      <text x="18" y="34" font-size="26" fill="#ffffff" font-weight="600">10</text>
+      <text x="18" y="58" font-size="11" letter-spacing="1" fill="#7dd3e8">PROVINCES</text>
+    </g>
+  </g>
+
+  <g font-family="'Space Grotesk','Segoe UI',sans-serif">
+    <text x="576" y="785" text-anchor="middle" font-size="14" letter-spacing="2.5" fill="#c4b5fd">
+      PANDAS · PLOTLY · STREAMLIT
+    </text>
+  </g>
+</svg>
