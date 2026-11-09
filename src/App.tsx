@@ -87,6 +87,7 @@ const projects: Project[] = [
     tags: ['Vision Transformer', 'Attention U-Net', 'Full-Stack', 'Medical AI'],
     metric: '94% Accuracy',
     repo: 'https://github.com/0987654321iqra/pulmo_1',
+    demo: 'https://pulmo-onco-scan.vercel.app/upload',
   },
   {
     title: 'Fruit Quality Classifier',
