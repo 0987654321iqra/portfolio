@@ -97,6 +97,7 @@ const projects: Project[] = [
     tags: ['EfficientNet', 'TensorFlow/Keras', 'Streamlit', 'Computer Vision'],
     metric: 'Real-Time Detection',
     repo: 'https://github.com/0987654321iqra/ML_PROJECT',
+    demo: 'https://mlproject-8fqjbfx3c2bvxquka6zkb9.streamlit.app/',
   },
   {
     title: 'Canada Wait Times Dashboard',
