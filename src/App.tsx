@@ -241,12 +241,6 @@ function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:opacity-90"
-          >
-            Hire Me
-          </a>
         </nav>
 
         <button
@@ -299,11 +293,7 @@ function Hero() {
           <motion.div variants={fadeUp} custom={0} className="mb-5 flex flex-wrap items-center gap-3">
             <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-1.5 text-sm text-violet-200">
               <Sparkles size={16} />
-              AI Graduate · ML & Web Developer
-            </div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-200">
-              <Award size={16} />
-              Canadian Citizen
+              AI & ML Engineer · LLMs · Data Analytics
             </div>
           </motion.div>
 
@@ -320,8 +310,8 @@ function Hero() {
             custom={2}
             className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl"
           >
-            I build machine learning models, analyze data, and craft intelligent web applications
-            that turn real-world challenges into measurable results.
+            I build machine learning models and LLM applications, and turn complex data into clear,
+            measurable results — from medical imaging AI to healthcare analytics dashboards.
           </motion.p>
 
           <motion.div variants={fadeUp} custom={3} className="mt-8 flex flex-wrap gap-4">
@@ -352,11 +342,6 @@ function Hero() {
             custom={4}
             className="mt-10 flex flex-wrap gap-6 text-sm text-slate-400"
           >
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-semibold text-white">94%</span>
-              <span>FYP Model Accuracy</span>
-            </div>
-            <div className="h-10 w-px bg-white/10" />
             <div className="flex items-center gap-2">
               <span className="text-2xl font-semibold text-white">5+</span>
               <span>Impactful Projects</span>
@@ -402,8 +387,8 @@ function About() {
               Building intelligent solutions with purpose
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="mt-5 text-base leading-relaxed text-slate-300">
-              Artificial Intelligence graduate with hands-on experience in machine learning, computer
-              vision, and full-stack development. I've delivered production-grade models and tools with
+              AI and machine learning engineer with hands-on experience in computer vision, LLMs,
+              data analytics, and full-stack development. I've delivered production-grade models and tools with
               measurable impact, including a diagnostic AI system reaching 94% accuracy and web
               applications that cut page load times by 30%.
             </motion.p>
@@ -417,7 +402,7 @@ function About() {
 
           <motion.div variants={fadeUp} custom={2} className="grid gap-4 sm:grid-cols-2">
             {[
-              { label: 'Focus Areas', value: 'AI · ML · Web Apps' },
+              { label: 'Focus Areas', value: 'ML · LLMs · Analytics' },
               { label: 'Strength', value: 'Measurable Results' },
               { label: 'Work Authorization', value: 'Canadian Citizen' },
               { label: 'Open To', value: 'Internships & Roles' },
@@ -749,7 +734,7 @@ function Contact() {
 
             <motion.div variants={fadeUp} custom={3} className="space-y-4">
               <a
-                href="mailto:pc6041.iqraahmed@gmail.com"
+                href="mailto:iqraahmed.sk@gmail.com"
                 className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-cyan-300/40 hover:bg-white/10"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/15 text-cyan-300">
@@ -757,12 +742,12 @@ function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-wider text-slate-400">Email</p>
-                  <p className="text-white">pc6041.iqraahmed@gmail.com</p>
+                  <p className="text-white">iqraahmed.sk@gmail.com</p>
                 </div>
               </a>
 
               <a
-                href="tel:+16399997639"
+                href="tel:+16395541272"
                 className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-cyan-300/40 hover:bg-white/10"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-violet-400/15 text-violet-300">
@@ -770,7 +755,7 @@ function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-wider text-slate-400">Phone</p>
-                  <p className="text-white">+1 (639) 999-7639</p>
+                  <p className="text-white">+1 639 554 1272</p>
                 </div>
               </a>
 
@@ -819,8 +804,8 @@ function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm text-slate-400 sm:flex-row">
         <p>© {new Date().getFullYear()} Iqra Ahmed. All rights reserved.</p>
         <div className="flex items-center gap-2 text-slate-500">
-          <GraduationCap size={16} />
-          <span>AI Graduate Portfolio</span>
+          <Brain size={16} />
+          <span>AI & Data Portfolio</span>
         </div>
       </div>
     </footer>
