@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
 import {
   Brain,
@@ -241,6 +241,12 @@ function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:opacity-90"
+          >
+            Let's Talk
+          </a>
         </nav>
 
         <button
@@ -377,45 +383,25 @@ function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid items-center gap-10 lg:grid-cols-2"
+          className="max-w-3xl"
         >
-          <div>
-            <motion.p variants={fadeUp} className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
-              About Me
-            </motion.p>
-            <motion.h2 variants={fadeUp} custom={1} className="section-title text-3xl text-white sm:text-4xl">
-              Building intelligent solutions with purpose
-            </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="mt-5 text-base leading-relaxed text-slate-300">
-              AI and machine learning engineer with hands-on experience in computer vision, LLMs,
-              data analytics, and full-stack development. I've delivered production-grade models and tools with
-              measurable impact, including a diagnostic AI system reaching 94% accuracy and web
-              applications that cut page load times by 30%.
-            </motion.p>
-            <motion.p variants={fadeUp} custom={3} className="mt-4 text-base leading-relaxed text-slate-300">
-              Whether it’s improving prediction accuracy, deploying AI systems for professional teams,
-              or crafting responsive web experiences, I love turning complex problems into clear,
-              usable outcomes. I'm a Canadian citizen currently based in Pakistan and relocating to
-              Canada.
-            </motion.p>
-          </div>
-
-          <motion.div variants={fadeUp} custom={2} className="grid gap-4 sm:grid-cols-2">
-            {[
-              { label: 'Focus Areas', value: 'ML · LLMs · Analytics' },
-              { label: 'Strength', value: 'Measurable Results' },
-              { label: 'Work Authorization', value: 'Canadian Citizen' },
-              { label: 'Open To', value: 'Internships & Roles' },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 card-hover"
-              >
-                <p className="text-xs uppercase tracking-wider text-slate-400">{item.label}</p>
-                <p className="mt-2 text-lg font-semibold text-white">{item.value}</p>
-              </div>
-            ))}
-          </motion.div>
+          <motion.p variants={fadeUp} className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+            About Me
+          </motion.p>
+          <motion.h2 variants={fadeUp} custom={1} className="section-title text-3xl text-white sm:text-4xl">
+            Building intelligent solutions with purpose
+          </motion.h2>
+          <motion.p variants={fadeUp} custom={2} className="mt-5 text-base leading-relaxed text-slate-300">
+            I'm an AI graduate who likes building things that actually work outside a notebook. My
+            thesis project combined a Vision Transformer and an Attention U-Net to catch lung cancer
+            in real clinical scans, holding up at 94% accuracy on data it had never seen before.
+            That's the standard I hold every project to: does it solve the actual problem.
+          </motion.p>
+          <motion.p variants={fadeUp} custom={3} className="mt-4 text-base leading-relaxed text-slate-300">
+            I'm a Canadian citizen currently based in Pakistan and relocating to Canada, and I'm
+            looking to join a team solving real problems with AI, not just chasing benchmark
+            numbers.
+          </motion.p>
         </motion.div>
       </div>
     </section>
@@ -517,7 +503,117 @@ function Experience() {
   )
 }
 
+function ProjectLinks({ project }: { project: Project }) {
+  if (!project.repo && !project.demo) return null
+  return (
+    <div className="mt-5 flex flex-wrap gap-5" onClick={(e) => e.stopPropagation()}>
+      {project.repo && (
+        <a
+          href={project.repo}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
+        >
+          <Github size={16} />
+          View Code
+          <ExternalLink size={14} />
+        </a>
+      )}
+      {project.demo && (
+        <a
+          href={project.demo}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-violet-300 transition hover:text-violet-200"
+        >
+          <Sparkles size={16} />
+          Live Demo
+          <ExternalLink size={14} />
+        </a>
+      )}
+    </div>
+  )
+}
+
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[70] flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
+      <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-label={project.title}
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 24 }}
+        className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-[#0d1424] shadow-2xl shadow-black/50"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur transition hover:bg-black/60"
+        >
+          <X size={18} />
+        </button>
+
+        <div className="relative overflow-hidden">
+          {project.image ? (
+            <img src={project.image} alt={project.title} className="h-56 w-full object-cover" />
+          ) : (
+            <div className="flex h-56 w-full items-center justify-center bg-gradient-to-br from-violet-500/20 via-[#0d1424] to-cyan-500/20">
+              <Cpu size={56} className="text-cyan-300/60" />
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424] via-transparent to-transparent" />
+          <span className="absolute bottom-4 left-6 rounded-full bg-cyan-400/90 px-3 py-1 text-xs font-semibold text-slate-950">
+            {project.metric}
+          </span>
+        </div>
+
+        <div className="p-6 sm:p-8">
+          <p className="text-sm text-violet-300">{project.subtitle}</p>
+          <h3 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">{project.title}</h3>
+          <p className="mt-4 text-base leading-relaxed text-slate-300">{project.description}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <ProjectLinks project={project} />
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 function Projects() {
+  const [selected, setSelected] = useState<Project | null>(null)
+
   return (
     <section id="projects" className="relative py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/20 to-transparent" />
@@ -539,7 +635,8 @@ function Projects() {
                 key={project.title}
                 variants={fadeUp}
                 custom={i + 2}
-                className={`overflow-hidden rounded-2xl border border-white/10 bg-[#0d1424] card-hover ${
+                onClick={() => setSelected(project)}
+                className={`cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-[#0d1424] card-hover ${
                   i === 0 ? 'md:col-span-2' : ''
                 }`}
               >
@@ -580,34 +677,7 @@ function Projects() {
                         </span>
                       ))}
                     </div>
-                    {(project.repo || project.demo) && (
-                      <div className="mt-5 flex flex-wrap gap-5">
-                        {project.repo && (
-                          <a
-                            href={project.repo}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
-                          >
-                            <Github size={16} />
-                            View Code
-                            <ExternalLink size={14} />
-                          </a>
-                        )}
-                        {project.demo && (
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-300 transition hover:text-violet-200"
-                          >
-                            <Sparkles size={16} />
-                            Live Demo
-                            <ExternalLink size={14} />
-                          </a>
-                        )}
-                      </div>
-                    )}
+                    <ProjectLinks project={project} />
                   </div>
                 </div>
               </motion.article>
@@ -615,6 +685,10 @@ function Projects() {
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
     </section>
   )
 }
@@ -727,8 +801,8 @@ function Contact() {
                 Let’s build something intelligent together
               </motion.h2>
               <motion.p variants={fadeUp} custom={2} className="mt-4 text-slate-300">
-                Open to internships, collaborations, and opportunities in AI, machine learning, and
-                web development.
+                If you're building something real in AI, ML, or data, and want someone who cares
+                about results over buzzwords, let's talk.
               </motion.p>
             </div>
 
