@@ -392,15 +392,14 @@ function About() {
             Building intelligent solutions with purpose
           </motion.h2>
           <motion.p variants={fadeUp} custom={2} className="mt-5 text-base leading-relaxed text-slate-300">
-            I'm an AI graduate who likes building things that actually work outside a notebook. My
-            thesis project combined a Vision Transformer and an Attention U-Net to catch lung cancer
-            in real clinical scans, holding up at 94% accuracy on data it had never seen before.
-            That's the standard I hold every project to: does it solve the actual problem.
+            I'm an AI and data professional who builds things people actually use. My focus is
+            turning messy data into clear business insight, and using agentic AI to automate the
+            repetitive work that eats up a team's time.
           </motion.p>
           <motion.p variants={fadeUp} custom={3} className="mt-4 text-base leading-relaxed text-slate-300">
-            I'm a Canadian citizen currently based in Pakistan and relocating to Canada, and I'm
-            looking to join a team solving real problems with AI, not just chasing benchmark
-            numbers.
+            I care about whether something solves the actual problem, not how it looks in a demo.
+            That's the bar I hold every project to, and it's what I bring to a team: less
+            guesswork, more decisions backed by real analysis.
           </motion.p>
         </motion.div>
       </div>
